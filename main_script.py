@@ -401,7 +401,7 @@ def manage_data():
 c = Canvas(root, bg='black')
 c.place(relwidth=1, relheight=0.2)
 
-header = Label(c, text="Attendance Data Prediction", fg="white", bg="black", font="{Comic Sans MS} 38")
+header = Label(c, text="Attendance Data Prediction", fg="white", bg="black", font="{Comic Sans MS} 32")
 header.config(height=100, width=100)
 header.pack()
 
