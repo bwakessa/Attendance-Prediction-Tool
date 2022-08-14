@@ -13,7 +13,7 @@ from datetime import datetime
 from math import cos, e, pi, pow
 
 root = Tk()
-root.title("HRLHA - Data Learner")
+root.title("Attendance Data Prediction")
 root.geometry("600x250")
 root.config(bg="black")
 
@@ -92,7 +92,7 @@ def load_model():
     n_root.protocol("WM_DELETE_WINDOW", go_back)
 
     # - provide description and details of model
-        # R, R^2 (percentage of variance), equation of MLR model,
+        # R, R^2, equation of MLR model,
 
     eq = 'Y = {} + {}*X_1 + {}*X_2 + {}*X_3 + {}*X_4 + {}*X_5'.format(model.intercept_,
                                                                       model.coef_[0][0],
@@ -208,18 +208,6 @@ def load_model():
 
     m3 = OptionMenu(n_root, s3, "Age", "Gender", "Total Donations",
                     "First Year", "Num Fundraisers Attended", "Weights")
-
-
-
-
-
-
-
-
-
-
-    # - implement important statistics in data manager
-    # - fix up visuals of UI
 
 
 def manage_data():
@@ -342,16 +330,6 @@ def manage_data():
         year_entry = Entry(n2_root, textvariable=year)
         year_entry.place(relx=0.84, rely=0.15)
 
-        # Label(n2_root, text="FIRST YEAR", bg='gray').place(relx=0.741, rely=0.05)
-        # first = StringVar()
-        # first_entry = Entry(n2_root, textvariable=first)
-        # first_entry.place(relx=0.72, rely=0.15)
-
-        # Label(n2_root, text="FUNDRAISERS ATTENDED", bg='gray').place(relx=0.818, rely=0.05)
-        # num = StringVar()
-        # num_entry = Entry(n2_root, textvariable=num)
-        # num_entry.place(relx=0.82, rely=0.15)
-
         entries = [name_entry, email_entry, pn_entry, age_entry, gen_entry,
                    donation_entry, year_entry]
 
@@ -402,19 +380,6 @@ def manage_data():
                 pass
 
 
-
-            # c.execute("INSERT INTO attendee_list VALUES (:NAME, :EMAIL, :PHONE_NUMBER, :AGE, :GENDER, :TOTAL_DONATIONS, :LARGEST_DONATION, :FIRST_YEAR, :NUM_FUNDRAISERS_ATTENDED)",
-            #           {
-            #               'NAME': name.get(),
-            #               'EMAIL': email.get(),
-            #               'PHONE_NUMBER': pn.get(),
-            #               'AGE': int(age.get()),
-            #               'GENDER': g,
-            #               'TOTAL_DONATIONS': int(total.get()),
-            #               'LARGEST_DONATION': int(largest.get()),
-            #               'FIRST_YEAR': int(first.get()),
-            #               'NUM_FUNDRAISERS_ATTENDED': int(num.get())
-            #           })
             c.close()
             conn.commit()
             conn.close()
